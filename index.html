@@ -13,7 +13,7 @@
   <body>
     <nav class="sidebar">
       <div class="logo">
-        <img src="./img/jbj-logo.svg" alt="" height="50" />
+        <img src="./img/jbj-logo.svg" alt="Site logo" height="50" />
         Dashboard
       </div>
       <ul class="nav-group">
@@ -78,28 +78,41 @@
     </nav>
 
     <header class="header">
-      <div>
+      <div class="search-bar">
+        <button class="small-btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
         <input type="search" />
-        <button>ASD</button>
-        <img src="" alt="" />
+      </div>
+      <div class="settings">
+        <button class="small-btn"><i class="fa-solid fa-bell"></i></button>
+        <img src="./img/jbj-logo.svg" alt="Profile picture" width="40px" />
         <p>Morgan Oakley</p>
       </div>
-      <div>
+      <div class="profile">
+        <img src="./img/jbj-logo.svg" alt="Profile picture" width="40px" />
         <div>
-          <img src="" alt="" />
-          <p></p>
-          <h2></h2>
-          <button>New</button>
-          <button>Upload</button>
-          <button>Share</button>
+          <p>Hi there,</p>
+          <p class="username">Morgan Oakley &lpar;@morgan&rpar;</p>
         </div>
+      </div>
+      <div class="post-btns">
+        <button>New</button>
+        <button>Upload</button>
+        <button>Share</button>
       </div>
     </header>
 
     <main class="main">
-      <div>Your Projects</div>
-      <div>Announcements</div>
-      <div>Trending</div>
+      <div class="projects">
+        <h2 class="section-title">Your Projects</h2>
+      </div>
+      <div class="announcements">
+        <h2 class="section-title">Announcements</h2>
+      </div>
+      <div class="trending">
+        <h2 class="section-title">Trending</h2>
+      </div>
     </main>
   </body>
 </html>
