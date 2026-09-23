@@ -1,6 +1,6 @@
 @font-face {
   font-family: "League Spartan";
-  src: url("../fonts/league-spartan.ttf");
+  src: url("./fonts/league-spartan.ttf");
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: "Source Sans 3";
-  src: url("../fonts/source-sans-3.ttf");
+  src: url("./fonts/source-sans-3.ttf");
   font-style: normal;
   font-weight: 200 900;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: "Source Sans 3";
-  src: url("../fonts/source-sans-3-italic.ttf");
+  src: url("./fonts/source-sans-3-italic.ttf");
   font-style: italic;
   font-weight: 200 900;
   font-display: swap;
@@ -42,6 +42,7 @@ body {
   display: grid;
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
   grid-template-areas:
     "sidebar header header"
     "sidebar main main";
@@ -106,6 +107,10 @@ body {
       }
     }
 
+    &:active {
+      background-color: #20202040;
+    }
+
     svg {
       margin-right: 1rem;
     }
@@ -134,16 +139,20 @@ body {
 
   img {
     border-radius: 10rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
 }
 
 .small-btn {
+  display: inline-grid;
+  place-items: center;
   font-size: 1.2rem;
   background-color: transparent;
   color: var(--text-col);
   border: none;
   border-radius: 5rem;
-  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   cursor: pointer;
   transition:
     background-color 0.2s,
@@ -162,12 +171,13 @@ body {
   gap: 0.5rem;
 
   input[type="search"] {
-    font-size: 1.2rem;
+    font-family: var(--text-font);
+    font-size: 1rem;
     background-color: rgba(0, 0, 0, 0.1);
     color: var(--text-col);
     border: none;
     border-radius: 5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem;
     flex: 0 1 30rem;
 
     &:focus {
@@ -193,12 +203,17 @@ body {
   }
 
   p {
-    margin-top: 0.4rem;
+    margin: 0.1rem 0;
+  }
+
+  .greeting {
+    margin-top: 0.6rem;
+    font-family: var(--text-font);
   }
 
   .username {
     font-size: 1.5rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.6rem;
   }
 }
 
@@ -210,7 +225,7 @@ body {
     font-weight: 600;
     background-color: var(--prim-col);
     color: var(--text-col);
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1.2rem;
     border: none;
     border-radius: 5rem;
     cursor: pointer;
@@ -230,13 +245,103 @@ body {
 .main {
   grid-area: main;
   display: grid;
-  grid-template-columns: 3fr minmax(15rem, 1fr);
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 3fr minmax(20rem, 1fr);
+  gap: 2rem;
   padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
 }
 
 .projects {
   grid-row: span 2;
+
+  & > div {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1rem;
+  }
+}
+
+.project-card {
+  background-color: var(--main-col);
+  border-left: 8px solid var(--prim-col);
+  border-radius: 8px;
+  padding: 2rem 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  p {
+    flex-grow: 1;
+    font-family: var(--text-font);
+  }
+}
+
+.card-links {
+  align-self: flex-end;
+}
+
+.panel {
+  margin-top: 1rem;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: var(--main-col);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.announcements {
+  .panel {
+    & > div {
+      flex-shrink: 1;
+    }
+
+    & > div:not(:last-child) {
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+      font-family: var(--text-font);
+    }
+  }
+}
+
+.trending {
+  margin-top: 2rem;
+
+  .panel {
+    gap: 1.5rem;
+  }
+}
+
+.trending-profile {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: 3rem 1fr;
+  column-gap: 0.8rem;
+  align-items: center;
+
+  img {
+    width: 100%;
+    border-radius: 5rem;
+    grid-row: span 2;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .user-tag {
+    font-size: 1rem;
+    font-family: var(--title-font);
+    font-weight: 500;
+    margin-bottom: -0.6rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    font-family: var(--text-font);
+    line-height: 0.9rem;
+  }
 }
